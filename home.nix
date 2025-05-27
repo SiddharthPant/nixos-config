@@ -68,18 +68,71 @@
   #  /etc/profiles/per-user/sid/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
+    BROWSER = "google-chrome-stable";
+    TERMINAL = "gnome-terminal";
   };
 
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      ll = "ls -l";
-      la = "ls -la";
-      ".." = "cd ..";
+  programs = {
+
+    # Let Home Manager install and manage itself.
+    home-manager.enable = true;
+
+    bash = {
+      enable = true;
+      enableCompletion = true;
+      shellAliases = {
+        ll = "ls -l";
+        la = "ls -la";
+        ".." = "cd ..";
+	"..." = "cd ../..";
+	grep = "grep --color=auto";
+      };
+    };
+    
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+
+      shellAliases = {
+        ll = "ls -l";
+        la = "ls -la";
+        ".." = "cd ..";
+	"..." = "cd ../..";
+	grep = "grep --color=auto";
+      };
+
+      oh-my-zsh = {
+        enable = true;
+	plugins = [ "git" "sudo" "docker" "kubectl" ];
+	theme = "robbyrussell";
+      };
     };
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  # Dconf settings (Gnome preferences)
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/privacy" = {
+        report-technical-problems = false;
+      };
+
+      "org/gnome/desktop/wm/preferences" = {
+        button-layout = "appmenu:minimize,maximize,close";
+      };
+
+      "org/gnome/shell" = {
+        favorite-apps = [
+          "com.google.Chrome.desktop"
+          "org.gnome.Console.desktop"
+          "org.gnome.Nautilus.desktop"
+          "org.gnome.Settings.desktop"
+        ];
+      };
+    };
+  };
+
 }
