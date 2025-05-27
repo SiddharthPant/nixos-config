@@ -126,10 +126,11 @@
 
       "org/gnome/shell" = {
         favorite-apps = [
-          "com.google.Chrome.desktop"
+          "google-chrome.desktop"
           "org.gnome.Console.desktop"
           "org.gnome.Nautilus.desktop"
           "org.gnome.Settings.desktop"
+	  "org.gnome.Calculator.desktop"
         ];
       };
     };
