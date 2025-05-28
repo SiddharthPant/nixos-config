@@ -138,6 +138,7 @@
     isNormalUser = true;
     description = "Siddharth Pant";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -146,28 +147,34 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # Install zsh.
+  programs.zsh.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    google-chrome
-    zsh
-    neovim
-    git
-    eza
-    vlc
-    fzf
-    ripgrep
-    libreoffice-fresh
-    wezterm
-    tmux
-    tldr
-    zoxide
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      wget
+      google-chrome
+      neovim
+      git
+      eza
+      vlc
+      fzf
+      ripgrep
+      libreoffice-fresh
+      wezterm
+      tmux
+      tldr
+      zoxide
+    ];
+
+    shells = with pkgs; [ bash zsh ];
+  };
 
   fonts.packages = with pkgs; [
     maple-mono.NF-unhinted
