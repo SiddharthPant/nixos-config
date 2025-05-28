@@ -129,6 +129,13 @@
         push.autoSetupRemote = true;
       };
     };
+
+    zoxide = {
+      enable = true;
+      options = [ "--cmd cd" ];
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+    };
   };
 
 
