@@ -180,6 +180,7 @@
       tmux
       tldr
       zoxide
+      bat
     ];
 
     shells = with pkgs; [ bash zsh ];

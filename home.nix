@@ -88,6 +88,7 @@
         ".." = "cd ..";
 	"..." = "cd ../..";
 	grep = "grep --color=auto";
+	cat = "bat";
       };
     };
     
@@ -115,6 +116,7 @@
         ".." = "cd ..";
 	"..." = "cd ../..";
 	grep = "grep --color=auto";
+	cat = "bat";
       };
 
       oh-my-zsh = {
