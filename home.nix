@@ -82,6 +82,7 @@
       enable = true;
       enableCompletion = true;
       shellAliases = {
+        ls = "eza --color --icons";
         ll = "ls -l";
         la = "ls -la";
         ".." = "cd ..";
@@ -108,6 +109,7 @@
       };
 
       shellAliases = {
+        ls = "eza --color --icons";
         ll = "ls -l";
         la = "ls -la";
         ".." = "cd ..";
@@ -132,9 +134,19 @@
 
     zoxide = {
       enable = true;
-      options = [ "--cmd cd" ];
       enableBashIntegration = true;
       enableZshIntegration = true;
+
+      options = [ "--cmd cd" ];
+    };
+
+    fzf = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+      tmux.enableShellIntegration = true;
+      
+      defaultCommand = "rg --files --ignore-vcs --hidden";
     };
   };
 
