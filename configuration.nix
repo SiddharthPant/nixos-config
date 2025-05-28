@@ -219,7 +219,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 1w";
+    options = "--delete-older-than 1m";
   };
 
   # This value determines the NixOS release from which the default
