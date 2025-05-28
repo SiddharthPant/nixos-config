@@ -96,6 +96,17 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
+      history = {
+        size = 100000;
+        append = true;
+        share = true;
+        ignoreDups = true;
+        findNoDups = true;
+        saveNoDups = true;
+        ignoreSpace = true;
+        ignoreAllDups = true;
+      };
+
       shellAliases = {
         ll = "ls -l";
         la = "ls -la";
@@ -110,15 +121,16 @@
 	theme = "robbyrussell";
       };
     };
+
+    git = {
+      enable = true;
+      extraConfig = {
+        init.defaultBranch = "main";
+        push.autoSetupRemote = true;
+      };
+    };
   };
 
-  git = {
-    enable = true;
-    extraConfig = {
-      init.defaultBranch = "main";
-      push.autoSetupRemote = true;
-    }
-  }
 
   # Dconf settings (Gnome preferences)
   dconf = {
