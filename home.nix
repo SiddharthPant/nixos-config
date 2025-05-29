@@ -154,6 +154,9 @@
     kitty = {
       enable = true;
 
+      font = {
+        name = "Maple Mono NF";
+      };
       
       shellIntegration.enableZshIntegration = true;
 
