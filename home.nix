@@ -150,6 +150,21 @@
       
       defaultCommand = "rg --files --ignore-vcs --hidden";
     };
+
+    kitty = {
+      enable = true;
+
+      
+      shellIntegration.enableZshIntegration = true;
+
+      settings = {
+        enable_audio_bell = "no";
+	cursor_text_color = "background";
+	shell_integration = "enabled";
+	cursor_trail = 3;
+      };
+
+    };
   };
 
 
