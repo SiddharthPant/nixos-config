@@ -70,7 +70,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     BROWSER = "google-chrome-stable";
-    TERMINAL = "gnome-terminal";
+    TERMINAL = "kitty";
   };
 
   programs = {
@@ -186,7 +186,7 @@
       "org/gnome/shell" = {
         favorite-apps = [
           "google-chrome.desktop"
-          "org.gnome.Console.desktop"
+          "kitty.desktop"
           "org.gnome.Nautilus.desktop"
           "org.gnome.Settings.desktop"
 	  "org.gnome.Calculator.desktop"
