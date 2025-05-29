@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "sid";
@@ -74,7 +76,6 @@
   };
 
   programs = {
-
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
 
@@ -86,12 +87,12 @@
         ll = "ls -l";
         la = "ls -la";
         ".." = "cd ..";
-	"..." = "cd ../..";
-	grep = "grep --color=auto";
-	cat = "bat";
+        "..." = "cd ../..";
+        grep = "grep --color=auto";
+        cat = "bat";
       };
     };
-    
+
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -114,15 +115,15 @@
         ll = "ls -l";
         la = "ls -la";
         ".." = "cd ..";
-	"..." = "cd ../..";
-	grep = "grep --color=auto";
-	cat = "bat";
+        "..." = "cd ../..";
+        grep = "grep --color=auto";
+        cat = "bat";
       };
 
       oh-my-zsh = {
         enable = true;
-	plugins = [ "git" "sudo" "docker" "kubectl" ];
-	theme = "robbyrussell";
+        plugins = ["git" "sudo" "docker" "kubectl"];
+        theme = "robbyrussell";
       };
     };
 
@@ -139,7 +140,7 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
 
-      options = [ "--cmd cd" ];
+      options = ["--cmd cd"];
     };
 
     fzf = {
@@ -147,7 +148,7 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
       tmux.enableShellIntegration = true;
-      
+
       defaultCommand = "rg --files --ignore-vcs --hidden";
     };
 
@@ -157,16 +158,15 @@
       font = {
         name = "Maple Mono NF";
       };
-      
+
       shellIntegration.enableZshIntegration = true;
 
       settings = {
         enable_audio_bell = "no";
-	cursor_text_color = "background";
-	shell_integration = "enabled";
-	cursor_trail = 3;
+        cursor_text_color = "background";
+        shell_integration = "enabled";
+        cursor_trail = 3;
       };
-
     };
 
     nvf = {
@@ -174,49 +174,138 @@
 
       settings = {
         vim = {
-	  viAlias = false;
-	  vimAlias = true;
+          viAlias = false;
+          vimAlias = true;
+          spellcheck = {
+            enable = true;
+          };
 
           theme = {
             enable = true;
-            name = "gruvbox";
-            style = "dark";
+            name = "catppuccin";
+            style = "mocha";
+            transparent = false;
           };
 
-          statusline.lualine.enable = true;
+          autopairs.nvim-autopairs.enable = true;
+          statusline = {
+            lualine = {
+              enable = true;
+              theme = "catppuccin";
+            };
+          };
           telescope.enable = true;
-          autocomplete.nvim-cmp.enable = true;
+          autocomplete.blink-cmp.enable = true;
+          utility = {
+            diffview-nvim.enable = true;
+            icon-picker.enable = true;
+            surround.enable = true;
+            multicursors.enable = true;
+            motion = {
+              hop.enable = true;
+              leap.enable = true;
+              precognition.enable = true;
+            };
+            images.img-clip.enable = true;
 
-	  lsp = {
-	    enable = true;
-	    trouble.enable = true;
-	  };
+            sleuth.enable = true;
+          };
 
-	  languages = {
-	    enableFormat = true;
-	    enableTreesitter = true;
-	    enableExtraDiagnostics = true;
+          notes = {
+            mind-nvim.enable = true;
+            todo-comments.enable = true;
+          };
 
-	    nix.enable = true;
-	    markdown.enable = true;
-	    bash.enable = true;
-	    css.enable = true;
-	    html.enable = true;
+          ui = {
+            borders.enable = true;
+            noice.enable = true;
+            colorizer.enable = true;
+            illuminate.enable = true;
+            breadcrumbs = {
+              enable = true;
+              navbuddy.enable = true;
+            };
+            smartcolumn = {
+              enable = true;
+              setupOpts.custom_colorcolumn = {
+                nix = "110";
+                ruby = "120";
+                java = "130";
+                go = ["90" "130"];
+              };
+            };
+            fastaction.enable = true;
+          };
+
+          snippets.luasnip.enable = true;
+          comments.comment-nvim.enable = true;
+
+          binds = {
+            whichKey.enable = true;
+            cheatsheet.enable = true;
+            hardtime-nvim.enable = true;
+          };
+
+          git = {
+            enable = true;
+            gitsigns.enable = true;
+            gitsigns.codeActions.enable = false; # throws an annoying debug message
+          };
+
+          minimap.codewindow.enable = true;
+          dashboard.alpha.enable = true;
+          notify.nvim-notify.enable = true;
+
+          projects.project-nvim.enable = true;
+
+          lsp = {
+            enable = true;
+
+            formatOnSave = true;
+            lspkind.enable = false;
+            lightbulb.enable = true;
+            lspsaga.enable = false;
+            trouble.enable = true;
+            lspSignature.enable = false;
+            otter-nvim.enable = true;
+            nvim-docs-view.enable = true;
+          };
+
+          languages = {
+            enableFormat = true;
+            enableTreesitter = true;
+            enableExtraDiagnostics = true;
+
+            nix.enable = true;
+            markdown.enable = true;
+            bash.enable = true;
+            css.enable = true;
+            html.enable = true;
             ts.enable = true;
-	    go.enable = true;
-	    lua.enable = true;
-	    python.enable = true;
-	    rust = {
-	      enable = true;
-	      crates.enable = true;
-	    };
+            go.enable = true;
+            lua.enable = true;
+            python.enable = true;
+            rust = {
+              enable = true;
+              crates.enable = true;
+            };
             tailwind.enable = true;
-	  };
-	};
+          };
+
+          visuals = {
+            nvim-scrollbar.enable = true;
+            nvim-web-devicons.enable = true;
+            nvim-cursorline.enable = true;
+            cinnamon-nvim.enable = true;
+            fidget-nvim.enable = true;
+
+            highlight-undo.enable = true;
+            indent-blankline.enable = true;
+          };
+        };
       };
     };
   };
-
 
   # Dconf settings (Gnome preferences)
   dconf = {
@@ -236,10 +325,9 @@
           "kitty.desktop"
           "org.gnome.Nautilus.desktop"
           "org.gnome.Settings.desktop"
-	  "org.gnome.Calculator.desktop"
+          "org.gnome.Calculator.desktop"
         ];
       };
     };
   };
-
 }
