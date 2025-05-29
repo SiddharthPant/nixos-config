@@ -1,26 +1,28 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot = {
     loader = {
       systemd-boot = {
         enable = true;
-	consoleMode = "max";
+        consoleMode = "max";
       };
       efi.canTouchEfiVariables = true;
     };
     # Use latest kernel.
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_14;
   };
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -56,15 +58,13 @@
     enable = true;
   };
 
-
   hardware.nvidia = {
-
     # Modesetting is required.
     modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
     # of just the bare essentials.
     powerManagement.enable = true;
 
@@ -74,9 +74,9 @@
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+    # Support is limited to the Turing and later architectures. Full list of
+    # supported GPUs is at:
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     open = true;
 
@@ -87,7 +87,6 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-
 
   # Enable the X11 windowing system.
   services.xserver = {
@@ -115,8 +114,6 @@
     };
   };
 
-
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -143,10 +140,10 @@
   users.users.sid = {
     isNormalUser = true;
     description = "Siddharth Pant";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -167,13 +164,13 @@
       wget
       (google-chrome.override {
         commandLineArgs = [
-	  "--enable-features=AcceleratedVideoEncoder,VaapiOnNvidiaGPUs,VaapiIgnoreDriverChecks,Vulkan,DefaultANGLEVulkan,VulkanFromANGLE"
+          "--enable-features=AcceleratedVideoEncoder,VaapiOnNvidiaGPUs,VaapiIgnoreDriverChecks,Vulkan,DefaultANGLEVulkan,VulkanFromANGLE"
           "--enable-features=VaapiIgnoreDriverChecks,VaapiVideoDecoder,PlatformHEVCDecoderSupport"
           "--enable-features=UseMultiPlaneFormatForHardwareVideo"
           "--ignore-gpu-blocklist"
           "--enable-zero-copy"
-	  "--ozone-platform=wayland"
-	];
+          "--ozone-platform=wayland"
+        ];
       })
       neovim
       git
@@ -190,7 +187,7 @@
       lazygit
     ];
 
-    shells = with pkgs; [ bash zsh ];
+    shells = with pkgs; [bash zsh];
   };
 
   fonts.packages = with pkgs; [
@@ -219,7 +216,7 @@
   nix = {
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
     };
   };
 
