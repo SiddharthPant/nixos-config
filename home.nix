@@ -176,10 +176,6 @@
         vim = {
           viAlias = false;
           vimAlias = true;
-          spellcheck = {
-            enable = true;
-          };
-
           theme = {
             enable = true;
             name = "catppuccin";
@@ -187,14 +183,15 @@
             transparent = false;
           };
 
-          autopairs.nvim-autopairs.enable = true;
           statusline = {
             lualine = {
               enable = true;
               theme = "catppuccin";
             };
           };
+
           tabline.nvimBufferline.enable = true;
+          autopairs.nvim-autopairs.enable = true;
           treesitter.context.enable = true;
           telescope.enable = true;
           autocomplete.blink-cmp.enable = true;
@@ -217,6 +214,7 @@
             images.img-clip.enable = true;
 
             sleuth.enable = true;
+            oil-nvim.enable = true;
           };
 
           notes = {
