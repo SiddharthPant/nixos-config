@@ -88,6 +88,7 @@
   };
 
   services = {
+    udev.packages = with pkgs; [gnome-settings-daemon];
     # Enable the X11 windowing system.
     xserver = {
       enable = true;
@@ -158,33 +159,41 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
-    systemPackages = with pkgs; [
-      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      wget
-      (google-chrome.override {
-        commandLineArgs = [
-          "--enable-features=AcceleratedVideoEncoder,VaapiOnNvidiaGPUs,VaapiIgnoreDriverChecks,Vulkan,DefaultANGLEVulkan,VulkanFromANGLE"
-          "--enable-features=VaapiIgnoreDriverChecks,VaapiVideoDecoder,PlatformHEVCDecoderSupport"
-          "--enable-features=UseMultiPlaneFormatForHardwareVideo"
-          "--ignore-gpu-blocklist"
-          "--enable-zero-copy"
-          "--ozone-platform=wayland"
-        ];
-      })
-      neovim
-      git
-      eza
-      vlc
-      fzf
-      ripgrep
-      libreoffice-fresh
-      kitty
-      tmux
-      tldr
-      zoxide
-      bat
-      lazygit
-    ];
+    systemPackages = with pkgs;
+      [
+        vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+        wget
+        (google-chrome.override {
+          commandLineArgs = [
+            "--enable-features=AcceleratedVideoEncoder,VaapiOnNvidiaGPUs,VaapiIgnoreDriverChecks,Vulkan,DefaultANGLEVulkan,VulkanFromANGLE"
+            "--enable-features=VaapiIgnoreDriverChecks,VaapiVideoDecoder,PlatformHEVCDecoderSupport"
+            "--enable-features=UseMultiPlaneFormatForHardwareVideo"
+            "--ignore-gpu-blocklist"
+            "--enable-zero-copy"
+            "--ozone-platform=wayland"
+          ];
+        })
+        neovim
+        git
+        eza
+        vlc
+        fzf
+        ripgrep
+        libreoffice-fresh
+        kitty
+        tmux
+        tldr
+        zoxide
+        bat
+        lazygit
+      ]
+      ++ (with pkgs.gnomeExtensions; [
+        appindicator
+        net-speed-simplified
+        caffeine
+        sound-output-device-chooser
+        clipboard-indicator
+      ]);
 
     shells = with pkgs; [bash zsh];
   };
