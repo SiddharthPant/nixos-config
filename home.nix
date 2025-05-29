@@ -168,6 +168,53 @@
       };
 
     };
+
+    nvf = {
+      enable = true;
+
+      settings = {
+        vim = {
+	  viAlias = false;
+	  vimAlias = true;
+
+          theme = {
+            enable = true;
+            name = "gruvbox";
+            style = "dark";
+          };
+
+          statusline.lualine.enable = true;
+          telescope.enable = true;
+          autocomplete.nvim-cmp.enable = true;
+
+	  lsp = {
+	    enable = true;
+	    trouble.enable = true;
+	  };
+
+	  languages = {
+	    enableFormat = true;
+	    enableTreesitter = true;
+	    enableExtraDiagnostics = true;
+
+	    nix.enable = true;
+	    markdown.enable = true;
+	    bash.enable = true;
+	    css.enable = true;
+	    html.enable = true;
+            ts.enable = true;
+	    go.enable = true;
+	    lua.enable = true;
+	    python.enable = true;
+	    rust = {
+	      enable = true;
+	      crates.enable = true;
+	    };
+            tailwind.enable = true;
+	  };
+	};
+      };
+    };
   };
 
 
