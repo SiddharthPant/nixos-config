@@ -194,8 +194,16 @@
               theme = "catppuccin";
             };
           };
+          tabline.nvimBufferline.enable = true;
+          treesitter.context.enable = true;
           telescope.enable = true;
           autocomplete.blink-cmp.enable = true;
+          terminal = {
+            toggleterm = {
+              enable = true;
+              lazygit.enable = true;
+            };
+          };
           utility = {
             diffview-nvim.enable = true;
             icon-picker.enable = true;
