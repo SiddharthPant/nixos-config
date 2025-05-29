@@ -323,6 +323,15 @@
       };
 
       "org/gnome/shell" = {
+        disable-user-extensions = false;
+        enabled-extensions = with pkgs.gnomeExtensions; [
+          appindicator.extensionUuid
+          net-speed-simplified.extensionUuid
+          caffeine.extensionUuid
+          sound-output-device-chooser.extensionUuid
+          clipboard-indicator.extensionUuid
+        ];
+
         favorite-apps = [
           "google-chrome.desktop"
           "kitty.desktop"
