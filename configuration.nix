@@ -11,11 +11,17 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+	consoleMode = "auto";
+      };
+      efi.canTouchEfiVariables = true;
+    };
+    # Use latest kernel.
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -176,11 +182,12 @@
       fzf
       ripgrep
       libreoffice-fresh
-      wezterm
+      kitty
       tmux
       tldr
       zoxide
       bat
+      lazygit
     ];
 
     shells = with pkgs; [ bash zsh ];
