@@ -218,6 +218,7 @@
         btop
         htop
         gcc
+        gnumake
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
