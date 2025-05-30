@@ -206,12 +206,24 @@
         lazygit
         openrazer-daemon
         polychromatic
+        spotify
+        fastfetch
+        unzip
+        unrar
+        zip
+        obsidian
+        vscode
+        nodejs_22
+        python313
+        nvtop
+        btop
+        htop
+        gcc
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
         net-speed-simplified
         caffeine
-        sound-output-device-chooser
         clipboard-indicator
         tiling-shell
       ]);
