@@ -214,7 +214,7 @@
         vscode
         nodejs_22
         python313
-        nvtop
+        nvtopPackages.nvidia
         btop
         htop
         gcc
