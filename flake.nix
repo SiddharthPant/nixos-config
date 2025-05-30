@@ -16,17 +16,16 @@
     };
   };
 
-  outputs = { ... } @ inputs:
-    let
-	system = "x86_64-linux";
-	pkgs = inputs.nixpkgs.legacyPackages.${system};
-    in {
+  outputs = inputs: let
+    system = "x86_64-linux";
+    pkgs = inputs.nixpkgs.legacyPackages.${system};
+  in {
     nixosConfigurations = {
       nixos = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         modules = [
-          ./configuration.nix
+          ./machines/desktop/configuration.nix
         ];
       };
     };
@@ -34,9 +33,9 @@
       sid = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-	  inputs.nvf.homeManagerModules.default
-	  ./home.nix
-	];
+          inputs.nvf.homeManagerModules.default
+          ./home.nix
+        ];
       };
     };
   };
