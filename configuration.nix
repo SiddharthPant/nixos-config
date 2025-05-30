@@ -219,6 +219,13 @@
         htop
         gcc
         gnumake
+        kubectl
+        eks-node-viewer
+        awscli2
+        k9s
+        whatsapp-for-linux
+        postgresql_17
+        redis
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
