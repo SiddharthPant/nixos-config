@@ -203,13 +203,8 @@
             icon-picker.enable = true;
             surround.enable = true;
             multicursors.enable = true;
-            motion = {
-              hop.enable = true;
-              leap.enable = true;
-              precognition.enable = true;
-            };
+            motion.precognition.enable = true;
             images.img-clip.enable = true;
-
             sleuth.enable = true;
             oil-nvim.enable = true;
           };
@@ -330,6 +325,7 @@
           caffeine.extensionUuid
           sound-output-device-chooser.extensionUuid
           clipboard-indicator.extensionUuid
+          tiling-shell.extensionUuid
         ];
 
         favorite-apps = [

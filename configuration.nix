@@ -193,6 +193,7 @@
         caffeine
         sound-output-device-chooser
         clipboard-indicator
+        tiling-shell
       ]);
 
     shells = with pkgs; [bash zsh];
