@@ -186,6 +186,8 @@
         zoxide
         bat
         lazygit
+        config.boot.kernelPackages.openrazer
+        polychromatic
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
