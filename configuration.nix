@@ -52,6 +52,17 @@
     LC_TIME = "en_IN";
   };
 
+  virtualisation.docker = {
+    enable = true;
+    enableNvidia = true;
+    enableOnBoot = true;
+    autoPrune = {
+      enable = true;
+      dates = "weekly";
+      flags = ["--all"];
+    };
+  };
+
   hardware = {
     # Enable OpenGL
     graphics.enable = true;
@@ -60,6 +71,7 @@
       users = ["sid"];
     };
 
+    nvidia-container-toolkit.enable = true;
     nvidia = {
       # Modesetting is required.
       modesetting.enable = true;
@@ -149,7 +161,7 @@
   users.users.sid = {
     isNormalUser = true;
     description = "Siddharth Pant";
-    extraGroups = ["networkmanager" "wheel" "plugdev"];
+    extraGroups = ["networkmanager" "wheel" "plugdev" "docker"];
     shell = pkgs.zsh;
   };
 
