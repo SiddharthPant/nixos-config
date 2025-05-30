@@ -55,7 +55,10 @@
   hardware = {
     # Enable OpenGL
     graphics.enable = true;
-    openrazer.enable = true;
+    openrazer = {
+      enable = true;
+      users = ["sid"];
+    };
 
     nvidia = {
       # Modesetting is required.
@@ -146,7 +149,7 @@
   users.users.sid = {
     isNormalUser = true;
     description = "Siddharth Pant";
-    extraGroups = ["networkmanager" "wheel" "openrazer" "plugdev"];
+    extraGroups = ["networkmanager" "wheel" "plugdev"];
     shell = pkgs.zsh;
   };
 
