@@ -7,6 +7,23 @@
         report-technical-problems = false;
       };
 
+      "org/gnome/mutter" = {
+        experimental-features = ["scale-monitor-framebuffer" "xwayland-native-scaling"];
+      };
+
+      "org/gnome/desktop/background" = {
+        color-shading-type = "solid";
+        picture-options = "zoom";
+        picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/fold-l.jxl";
+        picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/fold-d.jxl";
+      };
+
+      "org/gnome/desktop/screensaver" = {
+        color-shading-type = "solid";
+        picture-options = "zoom";
+        picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/fold-l.jxl";
+      };
+
       "org/gnome/desktop/wm/preferences" = {
         button-layout = "appmenu:minimize,maximize,close";
       };
