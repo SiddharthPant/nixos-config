@@ -11,6 +11,24 @@
         button-layout = "appmenu:minimize,maximize,close";
       };
 
+      "org/gnome/desktop/background" = {
+        color-shading-type = "solid";
+        picture-options = "zoom";
+        picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/fold-l.jxl";
+        picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/fold-d.jxl";
+        primary-color="#26a269";
+        secondary-color="#000000";
+      };
+
+      "org/gnome/desktop/screensaver" = {
+        color-shading-type = "solid";
+        picture-options = "zoom";
+        picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/fold-l.jxl";
+        primary-color="#26a269";
+        secondary-color="#000000";
+      };
+
+
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
@@ -25,6 +43,7 @@
           "google-chrome.desktop"
           "kitty.desktop"
           "org.gnome.Nautilus.desktop"
+          "code.desktop"
           "org.gnome.Calculator.desktop"
         ];
       };

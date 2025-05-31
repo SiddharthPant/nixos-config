@@ -231,6 +231,8 @@
         whatsapp-for-linux
         postgresql_17
         redis
+        gnome-tweaks
+        dconf-editor
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
