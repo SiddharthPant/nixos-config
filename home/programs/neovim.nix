@@ -22,6 +22,7 @@ _: {
 
         tabline.nvimBufferline.enable = true;
         autopairs.nvim-autopairs.enable = true;
+        filetree.neo-tree.enable = true;
         treesitter.context.enable = true;
         telescope.enable = true;
         autocomplete.blink-cmp.enable = true;
