@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  wallpaper-uri = "file:///home/sid/Pictures/wallpaper/kailash_parbat.png";
+  # wallpaper-uri = "file:///run/current-system/sw/share/backgrounds/gnome/fold-l.jxl";
+  # wallpaper-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/fold-d.jxl";
+in {
   # Dconf settings (Gnome preferences)
   dconf = {
     enable = true;
@@ -14,22 +18,19 @@
       "org/gnome/desktop/background" = {
         color-shading-type = "solid";
         picture-options = "zoom";
-        picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/fold-l.jxl";
-        picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/fold-d.jxl";
-        primary-color="#26a269";
-        secondary-color="#000000";
+        picture-uri = wallpaper-uri;
+        picture-uri-dark = wallpaper-uri;
       };
 
       "org/gnome/desktop/screensaver" = {
         color-shading-type = "solid";
         picture-options = "zoom";
-        picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/fold-l.jxl";
-        primary-color="#26a269";
-        secondary-color="#000000";
+        picture-uri = wallpaper-uri;
       };
 
       "org/gnome/desktop/interface" = {
-        font-antialiasing="rgba";
+        font-antialiasing = "rgba";
+        monospace-font-name = "Maple Mono NF 11";
       };
 
       "org/gnome/shell" = {
