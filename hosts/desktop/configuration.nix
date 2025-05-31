@@ -22,6 +22,8 @@
     };
     # Use latest kernel.
     kernelPackages = pkgs.linuxPackages_6_14;
+
+    plymouth.enable = true;
   };
 
   networking.hostName = "nixos"; # Define your hostname.
