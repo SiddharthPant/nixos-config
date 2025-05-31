@@ -1,13 +1,14 @@
 {pkgs, ...}: {
   imports = [
-    ./apps/php.nix
-    ./apps/zoxide.nix
-    ./apps/shell.nix
-    ./apps/git.nix
-    ./apps/fzf.nix
-    ./apps/neovim.nix
-    ./apps/gnome.nix
-    ./apps/kitty.nix
+    ./programs/php.nix
+    ./programs/zoxide.nix
+    ./programs/bash.nix
+    ./programs/zsh.nix
+    ./programs/git.nix
+    ./programs/fzf.nix
+    ./programs/neovim.nix
+    ./programs/gnome.nix
+    ./programs/kitty.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

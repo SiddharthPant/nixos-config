@@ -25,7 +25,7 @@
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
-          ./machines/desktop/configuration.nix
+          ./hosts/desktop/configuration.nix
         ];
       };
     };
@@ -34,7 +34,7 @@
         inherit pkgs;
         modules = [
           inputs.nvf.homeManagerModules.default
-          ./home.nix
+          ./home/desktop.nix
         ];
       };
     };
