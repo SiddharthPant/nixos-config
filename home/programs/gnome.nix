@@ -28,6 +28,9 @@
         secondary-color="#000000";
       };
 
+      "org/gnome/desktop/interface" = {
+        font-antialiasing="rgba";
+      };
 
       "org/gnome/shell" = {
         disable-user-extensions = false;
