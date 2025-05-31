@@ -57,6 +57,20 @@
     };
   };
 
+  fileSystems = {
+    "/mnt/DataDrive" = {
+      device = "/dev/disk/by-label/DataDrive";
+      fsType = "auto";
+      options = ["nosuid" "nodev" "nofail" "x-gvfs-show"];
+    };
+
+    "/mnt/BigBang" = {
+      device = "/dev/disk/by-label/BigBang";
+      fsType = "auto";
+      options = ["nosuid" "nodev" "nofail" "x-gvfs-show"];
+    };
+  };
+
   virtualisation.docker = {
     enable = true;
     enableOnBoot = true;
@@ -233,6 +247,7 @@
         redis
         gnome-tweaks
         dconf-editor
+        notion-app
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
