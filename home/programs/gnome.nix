@@ -42,7 +42,6 @@
           "google-chrome.desktop"
           "kitty.desktop"
           "org.gnome.Nautilus.desktop"
-          "org.gnome.Settings.desktop"
           "org.gnome.Calculator.desktop"
         ];
       };
