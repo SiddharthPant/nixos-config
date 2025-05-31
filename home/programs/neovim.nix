@@ -35,7 +35,10 @@ _: {
         utility = {
           diffview-nvim.enable = true;
           icon-picker.enable = true;
-          surround.enable = true;
+          surround = {
+            enable = true;
+            useVendoredKeybindings = false;
+          };
           motion.precognition.enable = true;
           images.img-clip.enable = true;
           sleuth.enable = true;
