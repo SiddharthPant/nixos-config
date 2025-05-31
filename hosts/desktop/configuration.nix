@@ -247,7 +247,7 @@
         redis
         gnome-tweaks
         dconf-editor
-        notion-app
+        notion-app-enhanced
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
