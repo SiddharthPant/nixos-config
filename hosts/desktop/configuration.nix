@@ -118,7 +118,16 @@
 
       # Enable the GNOME Desktop Environment.
       displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
+      desktopManager.gnome = {
+        enable = true;
+        extraGSettingsOverridePackages = [
+          pkgs.mutter
+        ];
+        extraGSettingsOverrides = ''
+          [org.gnome.mutter]
+          experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
+        '';
+      };
       # Configure keymap in X11
       xkb = {
         layout = "us";
@@ -222,8 +231,6 @@
         whatsapp-for-linux
         postgresql_17
         redis
-        gnome-tweaks
-        dconf-editor
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
