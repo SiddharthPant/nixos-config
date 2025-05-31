@@ -24,6 +24,19 @@
     kernelPackages = pkgs.linuxPackages_6_14;
 
     plymouth.enable = true;
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+    ];
+
+    # Optional: Silent until login
+    initrd.systemd.enable = true;
   };
 
   networking.hostName = "nixos"; # Define your hostname.
