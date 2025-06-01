@@ -221,6 +221,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
+    sessionVariables.NIXOS_OZONE_WL = "1";
+
     systemPackages = with pkgs;
       [
         vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -232,10 +234,11 @@
             "--enable-features=UseMultiPlaneFormatForHardwareVideo"
             "--ignore-gpu-blocklist"
             "--enable-zero-copy"
-            "--ozone-platform=wayland"
+            # "--ozone-platform=wayland"
           ];
         })
         neovim
+        du-dust
         git
         eza
         vlc
