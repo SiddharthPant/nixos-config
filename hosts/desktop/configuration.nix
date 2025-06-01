@@ -98,7 +98,11 @@
 
   hardware = {
     # Enable OpenGL
-    graphics.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
     openrazer = {
       enable = true;
       users = ["sid"];
@@ -113,7 +117,7 @@
       # Enable this if you have graphical corruption issues or application crashes after waking
       # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
       # of just the bare essentials.
-      powerManagement.enable = true;
+      powerManagement.enable = false;
 
       # Fine-grained power management. Turns off GPU when not in use.
       # Experimental and only works on modern Nvidia GPUs (Turing or newer).
@@ -146,7 +150,10 @@
       videoDrivers = ["nvidia"];
 
       # Enable the GNOME Desktop Environment.
-      displayManager.gdm.enable = true;
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+      };
       desktopManager.gnome = {
         enable = true;
         extraGSettingsOverridePackages = [
@@ -198,11 +205,15 @@
     shell = pkgs.zsh;
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Install zsh.
-  programs.zsh.enable = true;
+  programs = {
+    firefox.enable = true;
+    zsh.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
+    gamemode.enable = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -262,7 +273,8 @@
         redis
         gnome-tweaks
         dconf-editor
-        notion-app-enhanced
+        glxinfo
+        mangohud
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
