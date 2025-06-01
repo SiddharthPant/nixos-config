@@ -221,7 +221,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
-    sessionVariables.NIXOS_OZONE_WL = "1";
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/sid/.steam/root/compatibilitytools.d";
+    };
 
     systemPackages = with pkgs;
       [
@@ -278,6 +281,7 @@
         dconf-editor
         glxinfo
         mangohud
+        protonup
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
