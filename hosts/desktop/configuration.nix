@@ -223,6 +223,18 @@
         PermitRootLogin = "no"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
       };
     };
+
+    samba = {
+      enable = true;
+      shares = {
+        public = {
+          path = "/home/sid";
+          browseable = "yes";
+          "read only" = "no";
+          "guest ok" = "yes";
+        };
+      };
+    };
   };
 
   security.rtkit.enable = true;
