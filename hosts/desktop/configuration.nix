@@ -309,7 +309,7 @@
         mangohud
         protonup
         ffmpeg-full
-        gnome.gnome-software
+        gnome-software
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
