@@ -340,6 +340,7 @@
         protonup
         ffmpeg-full
         gnome-software
+        tree
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
