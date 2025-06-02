@@ -320,6 +320,7 @@
         zip
         obsidian
         vscode
+        code-cursor
         nodejs_22
         python313
         nvtopPackages.nvidia
