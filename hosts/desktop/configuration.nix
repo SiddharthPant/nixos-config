@@ -226,7 +226,8 @@
 
     samba = {
       enable = true;
-      shares = {
+      openFirewall = true;
+      settings = {
         public = {
           path = "/home/sid";
           browseable = "yes";
