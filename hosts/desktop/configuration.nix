@@ -101,6 +101,11 @@
     graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = with pkgs; [
+        nvidia-vaapi-driver
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
     };
 
     openrazer = {
@@ -140,8 +145,17 @@
     };
   };
 
+  systemd.services.flatpak-repo = {
+    wantedBy = ["multi-user.target"];
+    path = [pkgs.flatpak];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
   services = {
     udev.packages = with pkgs; [gnome-settings-daemon openrazer-daemon];
+    flatpak.enable = true;
     # Enable the X11 windowing system.
     xserver = {
       enable = true;
@@ -213,6 +227,18 @@
       gamescopeSession.enable = true;
     };
     gamemode.enable = true;
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+        obs-vaapi
+        obs-gstreamer
+        input-overlay
+        obs-vkcapture
+      ];
+    };
   };
 
   # Allow unfree packages
@@ -282,6 +308,8 @@
         glxinfo
         mangohud
         protonup
+        ffmpeg-full
+        gnome.gnome-software
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
@@ -296,6 +324,7 @@
 
   fonts.packages = with pkgs; [
     maple-mono.NF-unhinted
+    inter-nerdfont
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
