@@ -342,6 +342,7 @@
         ffmpeg-full
         gnome-software
         tree
+        tenv
       ]
       ++ (with pkgs.gnomeExtensions; [
         appindicator
